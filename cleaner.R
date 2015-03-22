@@ -18,6 +18,9 @@ etsy <- read.csv("rawdata/etsy_30k.csv")
 #remove crawler specific columns
 etsy.clean <- etsy[,c(7,9,10,11,12,13)]
 
+#replace NA or blank with 0
+etsy.clean[is.na(etsy.clean)] <- 0
+
 #change date column to use date type
 etsy.clean$opened._source <- as.Date(etsy.clean$opened._source , "%B %d %Y")
 
@@ -27,3 +30,5 @@ names(etsy.clean)[2] <- "opened_on"
 #make new column
 today <- as.Date("2015-03-18")
 etsy.clean$age <- as.numeric(today - etsy.clean$opened)
+
+write.csv(etsy.clean, file = "cleaned_data/etsy_30k.clean.csv")
