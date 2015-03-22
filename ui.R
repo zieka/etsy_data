@@ -54,9 +54,9 @@ shinyUI(fluidPage(
           0,
           452537,
           value = c(0, 452537)
-        ),
-        textInput("location", "Store's location (city state country) contains:"),
-        textInput("name", "Store name contains:")
+        )#,
+        #textInput("location", "Store's location (city state country) contains:"),
+        #textInput("name", "Store name contains:")
       ),
       wellPanel(
         selectInput("xvar", "X-axis variable", axis_vars, selected = "age"),

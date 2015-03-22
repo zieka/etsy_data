@@ -44,16 +44,16 @@ shinyServer(function(input, output, session) {
         sales <= maxsales
       )
 
-    # Optional: filter by location
-    if (!is.null(input$location) && input$location != "") {
-      location.keyword <- paste0(".*", input$location, ".*")
-      m <- m %>% filter(location %like% location.keyword)
-    }
-    # Optional: filter by cast store_name
-    if (!is.null(input$name) && input$name != "") {
-      name.keyword <- paste0(".*", input$name, ".*")
-      m <- m %>% filter(name %like% name.keyword)
-    }
+    # # Optional: filter by location
+    # if (!is.null(input$location) && input$location != "") {
+    #   location.keyword <- paste0(".*", input$location, ".*")
+    #   m <- m %>% filter(location %like% location.keyword)
+    # }
+    # # Optional: filter by cast store_name
+    # if (!is.null(input$name) && input$name != "") {
+    #   name.keyword <- paste0(".*", input$name, ".*")
+    #   m <- m %>% filter(name %like% name.keyword)
+    # }
 
     m <- as.data.frame(m)
     m
