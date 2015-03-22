@@ -21,9 +21,12 @@ actionLink <- function(inputId, ...) {
 }
 
 shinyUI(fluidPage(
-  titlePanel("ETSY.COM EXPLORER"),
   fluidRow(
-    column(3,
+    column(5,
+      wellPanel(
+        h4("About"),
+        p("This data was scraped from etsy.com.  Use the filters below to find an interesting subset.  Then pick the two attributes you want to compare.  Lastly, you can select a cluster number which runs a kmeans() on your two variables with the number of clusters specificed.  The result: a beautiful graph of your subset with clusters color coded and a linear regression (lm) ran on each grouping.  Enjoy!")
+      ),
       wellPanel(
         h4("Filter"),
         sliderInput(
@@ -32,28 +35,28 @@ shinyUI(fluidPage(
           0,
           151745,
           80,
-          value = c(0, 151745)
+          value = c(12, 316)
         ),
         sliderInput(
           "age",
           "Days the store has been opened:",
           0,
           3554,
-          value = c(0, 3554)
+          value = c(419, 1522)
         ),
         sliderInput(
           "admirers",
           "Number of admirers:",
           0,
           104451,
-          value = c(0,104451),
+          value = c(103,1777),
         ),
         sliderInput(
           "sales",
           "Number of items sold:",
           0,
           452537,
-          value = c(0, 452537)
+          value = c(50, 1383)
         )#,
         #textInput("location", "Store's location (city state country) contains:"),
         #textInput("name", "Store name contains:")
@@ -66,7 +69,7 @@ shinyUI(fluidPage(
         sliderInput("clusters", "Number of clusters:", 1, 4, 1)
       )
     ),
-    column(6,
+    column(7,
       ggvisOutput("plot1"),
       wellPanel(
         span("Number of stores selected:", textOutput("n_stores"))
