@@ -106,12 +106,12 @@ shinyServer(function(input, output, session) {
       layer_model_predictions(model = "lm") %>%
       add_tooltip(store_tooltip, "hover") %>%
       add_axis("x", title = xvar_name) %>%
-      add_axis("y", title = yvar_name)
+      add_axis("y", title = yvar_name, title_offset = 70) %>%
+      add_legend("fill", title = "K-Means Cluster")
 
   })
 
   vis %>% bind_shiny("plot1")
 
   output$n_stores <- renderText({ nrow(stores()) })
-
 })

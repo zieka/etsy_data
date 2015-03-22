@@ -66,12 +66,10 @@ shinyUI(fluidPage(
         sliderInput("clusters", "Number of clusters:", 1, 4, 1)
       )
     ),
-    column(9,
+    column(6,
       ggvisOutput("plot1"),
       wellPanel(
-        span("Number of stores selected:",
-          textOutput("n_stores")
-        )
+        span("Number of stores selected:", textOutput("n_stores"))
       )
     )
   )
